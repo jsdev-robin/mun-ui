@@ -9,11 +9,7 @@ const Table = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div className={cn("relative w-full overflow-auto", className)}>
     <ScrollArea className="h-full">
-      <table
-        ref={ref}
-        className={cn("w-full caption-bottom text-sm", className)}
-        {...props}
-      />
+      <table ref={ref} className="w-full caption-bottom text-sm" {...props} />
       <ScrollBar orientation="horizontal" />
     </ScrollArea>
   </div>

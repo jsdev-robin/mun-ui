@@ -48,8 +48,8 @@ import TableSearchInput from "../utils/TableSearchInput";
 import TableImportExport from "../utils/TableImportExport";
 import TableUserFilter from "../utils/TableUserFilter";
 import UsaFlagIcon from "@/app/assets/icons/UsaFlagIcon";
-import TableHeadTitle from "../utils/TableHeadTitle";
 import { borderedTableUsersData } from "../data/tableData";
+import TableHeadAction from "../utils/TableHeadAction";
 
 const UserBorderedTable = () => {
   return (
@@ -78,17 +78,27 @@ const UserBorderedTable = () => {
             </div>
             <TabsContent value="all">
               <div className="grid gap-4">
-                <Table className="max-h-[70vh] border">
-                  <TableHeader className="sticky top-0 z-30 bg-muted">
-                    <TableRow className="whitespace-nowrap *:border-r-gray-500 ">
+                <Table className="h-[70vh]">
+                  <TableHeader>
+                    <TableRow className="sticky top-0 bg-muted z-10">
                       <TableHead>
                         <CheckboxField />
                       </TableHead>
-                      <TableHeadTitle title="Name" />
-                      <TableHeadTitle title="Address" />
-                      <TableHeadTitle title="Signed up as" />
-                      <TableHeadTitle title="Email" />
-                      <TableHeadTitle title="Phone" />
+                      <TableHead>
+                        <TableHeadAction>Name</TableHeadAction>
+                      </TableHead>
+                      <TableHead>
+                        <TableHeadAction>Address</TableHeadAction>
+                      </TableHead>
+                      <TableHead>
+                        <TableHeadAction>Signed up as</TableHeadAction>
+                      </TableHead>
+                      <TableHead>
+                        <TableHeadAction>Email</TableHeadAction>
+                      </TableHead>
+                      <TableHead>
+                        <TableHeadAction>Phone</TableHeadAction>
+                      </TableHead>
                       <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -264,7 +274,7 @@ const UserBorderedTable = () => {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.phone}</TableCell>
                         <TableCell>
-                          <Download />
+                          <Download className="size-5" />
                         </TableCell>
                       </TableRow>
                     ))}

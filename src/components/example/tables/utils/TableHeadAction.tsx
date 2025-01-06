@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { TableHead } from "@/components/ui/table";
 import {
   Popover,
   PopoverContent,
@@ -19,11 +18,11 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 
-interface TableHeadTitleProps {
-  title: string;
+interface TableHeadActionProps {
+  children: React.ReactNode;
 }
 
-const TableHeadTitle: React.FC<TableHeadTitleProps> = ({ title }) => {
+const TableHeadAction: React.FC<TableHeadActionProps> = ({ children }) => {
   const [open, setOpen] = useState<boolean>(false);
   return (
     <Popover
@@ -33,21 +32,19 @@ const TableHeadTitle: React.FC<TableHeadTitleProps> = ({ title }) => {
       open={open}
     >
       <PopoverTrigger asChild>
-        <TableHead>
-          <Button
-            variant="ghost"
-            size="sm"
-            className={cn(
-              "w-full justify-start",
-              open && "bg-accent text-foreground"
-            )}
-          >
-            {title}
-            <ChevronsUpDown />
-          </Button>
-        </TableHead>
+        <Button
+          variant="ghost"
+          size="sm"
+          className={cn(
+            "w-full justify-start",
+            open && "bg-accent text-foreground"
+          )}
+        >
+          {children}
+          <ChevronsUpDown />
+        </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-40 p-1 ml-4" align="start">
+      <PopoverContent className="w-40 p-1" align="start">
         {[
           { icon: <ArrowUp />, label: "Import Contact" },
           { icon: <ArrowDown />, label: "Sort descending" },
@@ -80,4 +77,4 @@ const TableHeadTitle: React.FC<TableHeadTitleProps> = ({ title }) => {
   );
 };
 
-export default TableHeadTitle;
+export default TableHeadAction;
