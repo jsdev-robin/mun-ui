@@ -79,8 +79,8 @@ const UserBorderedTable = () => {
             <TabsContent value="all">
               <div className="grid gap-4">
                 <Table className="h-[70vh]">
-                  <TableHeader>
-                    <TableRow className="sticky top-0 bg-muted z-10">
+                  <TableHeader className="sticky top-0 bg-muted z-10 border-x">
+                    <TableRow>
                       <TableHead>
                         <CheckboxField />
                       </TableHead>
@@ -105,7 +105,7 @@ const UserBorderedTable = () => {
                   <TableBody>
                     {borderedTableUsersData.map((user, index) => (
                       <TableRow
-                        className="whitespace-nowrap *:border-r *:border-b"
+                        className="whitespace-nowrap *:border"
                         key={index}
                       >
                         <TableCell>
@@ -219,7 +219,7 @@ const UserBorderedTable = () => {
                                       <Text variant="sm">{user.address}</Text>
                                     </div>
                                   </div>
-                                  <div className="py-2 border-t border-b grid grid-cols-3 gap-4 items-center">
+                                  <div className="py-2 border-y grid grid-cols-3 gap-4 items-center">
                                     <div className="col-span-1">
                                       <Text
                                         variant="sm"
@@ -274,7 +274,9 @@ const UserBorderedTable = () => {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.phone}</TableCell>
                         <TableCell>
-                          <Download className="size-5" />
+                          <Button size="sm">
+                            <Download />
+                          </Button>
                         </TableCell>
                       </TableRow>
                     ))}
