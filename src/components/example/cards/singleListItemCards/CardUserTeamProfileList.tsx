@@ -250,7 +250,7 @@ const CardUserTeamProfileList = () => {
                               </div>
                             </div>
                           </ScrollArea>
-                          <DialogFooter className="p-4 border-t">
+                          <DialogFooter className="p-4 border-t gap-y-2">
                             <DialogClose asChild>
                               <Button variant="outline">Close</Button>
                             </DialogClose>
