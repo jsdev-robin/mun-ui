@@ -3,7 +3,16 @@ import Heading from "@/components/ui/heading";
 import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
-import { Archive, EllipsisVertical, Pencil, Star, Trash } from "lucide-react";
+import {
+  Archive,
+  Check,
+  EllipsisVertical,
+  FilesIcon,
+  Pencil,
+  Plus,
+  Star,
+  Trash,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -11,6 +20,22 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import CheckboxField from "@/components/ui/checkbox-field";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const CardUserTeamProfileList = () => {
   return (
@@ -89,14 +114,151 @@ const CardUserTeamProfileList = () => {
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-40 p-1" align="end">
-                      <Button
-                        variant="ghost"
-                        size="xs"
-                        className="w-full justify-start text-accent-foreground"
-                      >
-                        <Pencil />
-                        Edit team
-                      </Button>
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="xs"
+                            className="w-full justify-start text-accent-foreground"
+                          >
+                            <Pencil />
+                            Edit team
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="p-0 gap-0 w-full rounded-lg max-w-[95%] md:max-w-xl">
+                          <DialogHeader className="p-5 border-b">
+                            <DialogTitle>Import contacts</DialogTitle>
+                            <DialogDescription />
+                          </DialogHeader>
+                          <ScrollArea className="px-4 py-0 max-sm:portrait:max-h-[calc(100vh-300px)] max-sm:landscape:max-h-[calc(100vh-150px)] sm:landscape:max-h-[calc(100vh-200px)]">
+                            <div className="grid gap-4 px-1 my-4">
+                              <div className="grid w-full gap-2">
+                                <Label htmlFor="title">Title</Label>
+                                <Input
+                                  type="text"
+                                  id="title"
+                                  placeholder="conference"
+                                />
+                              </div>
+                              <div className="grid w-full gap-2">
+                                <Label htmlFor="Iindustry">Industry</Label>
+                                <Input
+                                  type="text"
+                                  id="industry"
+                                  placeholder="Enter name"
+                                />
+                              </div>
+                              <div className="grid w-full gap-2">
+                                <Label htmlFor="description">Description</Label>
+                                <Textarea
+                                  id="description"
+                                  placeholder="Online meeting services group"
+                                />
+                              </div>
+                              <div className="grid flex-1 gap-2">
+                                <Label htmlFor="members">Members</Label>
+                                <div className="flex items-center flex-1 gap-4">
+                                  <Input
+                                    type="text"
+                                    id="members"
+                                    placeholder="Enter name"
+                                  />
+                                  <Button variant="outline">
+                                    <Plus />
+                                    Add
+                                  </Button>
+                                </div>
+                              </div>
+                              <div className="grid w-full gap-2">
+                                <Label htmlFor="Suggested">
+                                  Suggested members
+                                </Label>
+                                <div className="flex items-center gap-2.5">
+                                  <div className="relative inline-block">
+                                    <Avatar>
+                                      <AvatarImage
+                                        src="/images/users/01.jpg"
+                                        alt="abatar"
+                                      />
+                                      <AvatarFallback>T</AvatarFallback>
+                                    </Avatar>
+                                    <span className="block absolute -right-1 -top-1 rounded-full bg-background">
+                                      <span className="relative flex size-5 flex-col items-center justify-center rounded-full border-2 border-border text-primary bg-primary/40">
+                                        <CheckboxField className="rounded-full z-10" />
+                                        <Check className="shrink-0 size-3 absolute z-0" />
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <div className="relative inline-block">
+                                    <Avatar>
+                                      <AvatarImage
+                                        src="/images/users/02.jpg"
+                                        alt="abatar"
+                                      />
+                                      <AvatarFallback>R</AvatarFallback>
+                                    </Avatar>
+                                    <span className="block absolute -right-1 -top-1 rounded-full bg-background">
+                                      <span className="relative flex size-5 flex-col items-center justify-center rounded-full border-2 border-border text-primary bg-primary/40">
+                                        <CheckboxField className="rounded-full z-10" />
+                                        <Check className="shrink-0 size-3 absolute z-0" />
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <div className="relative inline-block">
+                                    <Avatar>
+                                      <AvatarFallback>RX</AvatarFallback>
+                                    </Avatar>
+                                    <span className="block absolute -right-1 -top-1 rounded-full bg-background">
+                                      <span className="relative flex size-5 flex-col items-center justify-center rounded-full border-2 border-border text-primary bg-primary/40">
+                                        <CheckboxField className="rounded-full z-10" />
+                                        <Check className="shrink-0 size-3 absolute z-0" />
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <div className="relative inline-block">
+                                    <Avatar>
+                                      <AvatarImage
+                                        src="/images/users/04.jpg"
+                                        alt="abatar"
+                                      />
+                                      <AvatarFallback>S</AvatarFallback>
+                                    </Avatar>
+
+                                    <span className="block absolute -right-1 -top-1 rounded-full bg-background">
+                                      <span className="relative flex size-5 flex-col items-center justify-center rounded-full border-2 border-border text-primary bg-primary/40">
+                                        <CheckboxField className="rounded-full z-10" />
+                                        <Check className="shrink-0 size-3 absolute z-0" />
+                                      </span>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="grid w-full gap-2">
+                                <Label className="pb-2 block">Upload</Label>
+                                <div className="p-12 rounded-md border border-dashed flex flex-col items-center justify-center">
+                                  <FilesIcon className="size-16 mx-auto mb-4 stroke-muted-foreground" />
+                                  <p className="font-medium text-sm">
+                                    Drop your files here or
+                                    <span className="text-primary ml-1 hover:underline cursor-pointer">
+                                      browse
+                                    </span>
+                                  </p>
+                                  <p className="text-muted-foreground text-sm">
+                                    CSV, XLS, DOCX
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </ScrollArea>
+                          <DialogFooter className="p-4 border-t">
+                            <DialogClose asChild>
+                              <Button variant="outline">Close</Button>
+                            </DialogClose>
+                            <Button>Save and change</Button>
+                          </DialogFooter>
+                        </DialogContent>
+                      </Dialog>
+
                       <Button
                         variant="ghost"
                         size="xs"
